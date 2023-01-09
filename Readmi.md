@@ -1,0 +1,1 @@
+Project for copy gradle to cloud
