@@ -18,9 +18,15 @@ public class EngineServiceImpl implements EngineService {
 
     @Override
     public void process() throws IOException {
-        clearService.clear(property.getPathGradleOut());
-        clearService.clear(property.getPathGradleCopy());
+        clearAllSaveFile();
         copyService.copyFolder(property.getPathGradle(), property.getPathGradleCopy());
         gradleAddToZip.add();
+        copyService.copyFolder(property.getPathGradleCopy(), property.getPathCloudFolder());
+    }
+
+    private void clearAllSaveFile() throws IOException {
+        clearService.clear(property.getPathGradleOut());
+        clearService.clear(property.getPathGradleCopy());
+        clearService.clear(property.getPathCloudFolder());
     }
 }

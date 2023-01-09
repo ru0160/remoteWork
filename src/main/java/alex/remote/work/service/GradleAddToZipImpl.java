@@ -22,7 +22,7 @@ public class GradleAddToZipImpl implements GradleAddToZip {
     public void add() throws IOException {
         log.info("process zip directory");
         String sourceFile = property.getPathGradleCopy();
-        FileOutputStream fos = new FileOutputStream(property.getPathGradleOut());
+        FileOutputStream fos = new FileOutputStream(property.getPathGradleOut() + "/gradle.zip");
         ZipOutputStream zipOut = new ZipOutputStream(fos);
 
         File fileToZip = new File(sourceFile);
