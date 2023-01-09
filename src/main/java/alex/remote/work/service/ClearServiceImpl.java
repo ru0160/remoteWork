@@ -15,8 +15,8 @@ public class ClearServiceImpl implements ClearService {
 
     @Override
     public void clear(String source) throws IOException {
-        log.info("process clear directory");
+        log.info("process clear directory {}", source);
         FileUtils.cleanDirectory(new File(source));
-        log.info("success clear directory");
+        log.info("success clear directory {}", source);
     }
 }

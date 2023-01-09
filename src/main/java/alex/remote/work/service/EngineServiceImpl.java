@@ -21,7 +21,7 @@ public class EngineServiceImpl implements EngineService {
         clearAllSaveFile();
         copyService.copyFolder(property.getPathGradle(), property.getPathGradleCopy());
         gradleAddToZip.add();
-        copyService.copyFolder(property.getPathGradleCopy(), property.getPathCloudFolder());
+        copyService.copyFolder(property.getPathGradleOut(), property.getPathCloudFolder());
     }
 
     private void clearAllSaveFile() throws IOException {

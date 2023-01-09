@@ -15,7 +15,7 @@ public class CopyServiceImpl implements CopyService {
 
     @Override
     public void copyFolder(String source, String destination) {
-        log.info("process copy directory");
+        log.info("process copy directory: {} to {}", source, destination);
         File srcDir = new File(source);
 
         File destDir = new File(destination);
@@ -25,6 +25,6 @@ public class CopyServiceImpl implements CopyService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        log.info("success copy directory");
+        log.info("success copy directory {}", destination);
     }
 }
