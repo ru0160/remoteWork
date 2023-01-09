@@ -1,0 +1,13 @@
+server:
+  port: 8292
+  servlet:
+    context-path: /work
+
+spring:
+  application:
+    name: work
+
+work:
+  path-gradle: C:\Users\Александр\.gradle
+  path-gradle-out: C:\Users\Александр\Documents\zip
+  path-gradle-copy: C:\Users\Александр\Documents\copyGradle
