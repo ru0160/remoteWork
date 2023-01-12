@@ -14,4 +14,8 @@ public class WorkProperty {
     private String pathGradleOut;
     private String pathGradleCopy;
     private String pathCloudFolder;
+    private String pathM2;
+    private String pathM2Out;
+    private String pathM2Copy;
+    private String pathM2CloudFolder;
 }

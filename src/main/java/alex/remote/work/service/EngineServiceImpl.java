@@ -12,22 +12,35 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class EngineServiceImpl implements EngineService {
+public class EngineServiceImpl {
     private final ClearService clearService;
     private final CopyService copyService;
-    private final GradleAddToZip gradleAddToZip;
+    private final ZipFolder zipFolder;
     private final WorkProperty property;
-
-    @Override
+    
     @EventListener(ApplicationReadyEvent.class)
-    public void process() throws IOException {
-        clearAllSaveFile();
+    public void processGradle() throws IOException {
+        clearGradleAll();
         copyService.copyFolder(property.getPathGradle(), property.getPathGradleCopy());
-        gradleAddToZip.add();
+        zipFolder.add("/gradle.zip", property.getPathGradleCopy(), property.getPathGradleOut());
         copyService.copyFolder(property.getPathGradleOut(), property.getPathCloudFolder());
     }
 
-    private void clearAllSaveFile() throws IOException {
+    @EventListener(ApplicationReadyEvent.class)
+    public void processM2() throws IOException {
+        clearM2All();
+        copyService.copyFolder(property.getPathM2(), property.getPathM2Copy());
+        zipFolder.add("/m2.zip", property.getPathM2Copy(), property.getPathM2Out());
+        copyService.copyFolder(property.getPathM2Out(), property.getPathM2CloudFolder());
+    }
+
+    private void clearM2All() throws IOException {
+        clearService.clear(property.getPathM2Out());
+        clearService.clear(property.getPathM2Copy());
+        clearService.clear(property.getPathM2CloudFolder());
+    }
+
+    private void clearGradleAll() throws IOException {
         clearService.clear(property.getPathGradleOut());
         clearService.clear(property.getPathGradleCopy());
         clearService.clear(property.getPathCloudFolder());

@@ -15,17 +15,16 @@ import java.util.zip.ZipOutputStream;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class GradleAddToZipImpl implements GradleAddToZip {
-    private final WorkProperty property;
+public class ZipFolderImpl implements ZipFolder {
 
     @Override
-    public void add() throws IOException {
-        log.info("process zip directory {}", property.getPathGradleCopy());
-        String sourceFile = property.getPathGradleCopy();
-        FileOutputStream fos = new FileOutputStream(property.getPathGradleOut() + "/gradle.zip");
+    public void add(String filename, String pathSource, String pathDestination) throws IOException {
+        log.info("process zip directory {}", pathSource);
+
+        FileOutputStream fos = new FileOutputStream(pathDestination + filename);
         ZipOutputStream zipOut = new ZipOutputStream(fos);
 
-        File fileToZip = new File(sourceFile);
+        File fileToZip = new File(pathSource);
         zipFile(fileToZip, fileToZip.getName(), zipOut);
         zipOut.close();
         fos.close();

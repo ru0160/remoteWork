@@ -12,3 +12,7 @@ work:
   path-gradle-out: C:\Users\Александр\Documents\zip
   path-gradle-copy: C:\Users\Александр\Documents\copyGradle
   path-cloud-folder: C:\Users\Александр\YandexDisk\zipGradle
+  path-m2: C:\Users\Александр\.m2
+  path-m2-copy: C:\Users\Александр\Documents\copyM2
+  path-m2-out: C:\Users\Александр\Documents\zipM2
+  path-m2-cloud-folder: C:\Users\Александр\YandexDisk\zipM2
